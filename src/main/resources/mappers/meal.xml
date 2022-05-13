@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cg.park.testSpringBoot.daos.MealDao">
+    <select id="selectMeals" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        select
+             (select codeName from code where groupCode = 'timeType' and code = m.timeType) as timeType
+            ,r.minuteWalkingDistance
+            ,r.restaurantName
+            ,mh.foodName
+            ,(select codeName from code where groupCode = 'foodType' and code = mh.foodType) as foodType
+            ,(select codeName from code where groupCode = 'tasteLank' and code = mh.tasteLank) as tasteExpression
+            ,mh.tasteLank
+            ,date_format(mh.visitDate, '%Y-%m-%d') as visitDate
+        from (
+                select * from meal
+                <where>
+                    <if test="mealNo != 0">
+                        and mealNo = #{mealNo}
+                    </if>
+                </where>
+        ) m
+        left outer join restaurant r
+            on m.mealNo = r.mealNo
+        left outer join mealHistory mH
+            on m.mealNo = mH.mealNo
+        order by mh.visitDate desc
+    </select>
+
+    <insert id="insertMeal" parameterType="java.util.HashMap"
+            useGeneratedKeys="true" keyProperty="mealNo" keyColumn="mealNo">
+        insert into meal ( timeType   , createdBy   , createdDate  )
+        values           ( #{timeType}, #{createdBy}, NOW()        )
+    </insert>
+
+    <insert id="insertRestaurant" parameterType="java.util.HashMap">
+        insert into restaurant ( mealNo   , restaurantName   , minuteWalkingDistance     )
+        values                 ( #{mealNo}, #{restaurantName}, #{minuteWalkingDistance}  )
+    </insert>
+
+    <insert id="insertMealHistory" parameterType="java.util.HashMap">
+        insert into mealHistory (
+              mealNo
+            , visitDate
+            , tasteLank
+            , foodType
+            , foodName
+        ) values (
+              #{mealNo}
+            , #{visitDate}
+            , #{tasteLank}
+            , #{foodType}
+            , #{foodName}
+        )
+    </insert>
+</mapper>

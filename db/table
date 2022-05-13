@@ -1,0 +1,45 @@
+-- 식사 정보
+create table meal (
+    mealNo int auto_increment,
+    timeType varchar(2),
+    createdBy varchar(25),
+    createdDate date default NOW(),
+    PRIMARY KEY (mealNo)
+)
+;
+
+-- 식당 정보
+create table restaurant (
+    mealNo int,
+    restaurantName varchar(50),
+    minuteWalkingDistance int,
+    FOREIGN KEY (mealNo) REFERENCES meal(mealNo)
+)
+
+-- 식당 후기
+create table mealHistory (
+    mealNo int,
+    visitDate date default NOW(),
+    tasteLank varchar(1),
+    foodType varchar(2),
+    foodName varchar(2),
+    FOREIGN KEY (mealNo) REFERENCES meal(mealNo)
+)
+
+
+-- 공통코드
+create table code (
+    codeNo int auto_increment,
+    groupCode varchar(15),
+    code varchar(15),
+    codeName varchar(25),
+    createdBy varchar(25),
+    createdDate date default NOW(),
+    updatedBy varchar(25),
+    updatedDate date default NOW(),
+    PRIMARY KEY (codeNo)
+)
+
+
+
+
