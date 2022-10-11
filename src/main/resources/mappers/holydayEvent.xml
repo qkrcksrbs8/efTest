@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cg.park.testSpringBoot.daos.HolydayEventDao">
+
+    <select id="gradeList" resultType="cg.park.testSpringBoot.dto.HolydayEvent">
+        SELECT 'DIAMOND' GRADE FROM dual union all
+        SELECT 'GOLD' GRADE FROM dual union all
+        SELECT 'SILVER' GRADE FROM dual
+    </select>
+
+    <select id="holydayEventList" parameterType="String" resultType="cg.park.testSpringBoot.dto.HolydayEvent">
+        SELECT G.HOLYDAY_GRADE, G.GRADE, G.TYPE, G.TYPE_COUNT, D.EVENT_ID, D.VIEW_NAME, D.SUB_NAME
+        FROM holydayEventGrade G
+          LEFT OUTER JOIN holydayEventDetail D ON G.HOLYDAY_GRADE = D.HOLYDAY_GRADE
+        WHERE G.GRADE = #{grade}
+        ORDER BY HOLYDAY_GRADE, VIEW_NAME
+    </select>
+
+    <select id="holydayGiftList" parameterType="String" resultType="cg.park.testSpringBoot.dto.HolydayEvent">
+        SELECT EM.SEQ seq, EM.TITLE title
+        FROM (
+                 SELECT *
+                 FROM t_holyday_gift
+                 WHERE GRADE = #{grade}
+                 ORDER BY seq DESC
+                     limit 1
+             ) G
+         LEFT OUTER JOIN t_holyday_gift_sub GS ON G.SEQ = GS.master_seq
+         LEFT OUTER JOIN t_holyday_event_master EM ON GS.gift_seq = EM.SEQ
+    </select>
+
+</mapper>

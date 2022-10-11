@@ -47,16 +47,15 @@ public class mealTest {
     @Test
     public void insertMeal() {
         try {
-            Param param =
-                    new Param()
-                    .set("timeType", "LC")
-                    .set("createdBy", "pcg")
-                    .set("restaurantName", "서울촌놈수육국")
-                    .set("minuteWalkingDistance", 5)
-                    .set("visitDate", "20220510")
-                    .set("tasteLank", "A")
-                    .set("foodType", "KR")
-                    .set("foodName", "곱창국밥");
+            Param param = new Param()
+                        .set("timeType", "LC")
+                        .set("createdBy", "pcg")
+                        .set("restaurantName", "서울촌놈수육국")
+                        .set("minuteWalkingDistance", 5)
+                        .set("visitDate", "20220510")
+                        .set("tasteLank", "A")
+                        .set("foodType", "KR")
+                        .set("foodName", "곱창국밥");
             mealDao.insertMeal(param);
             mealDao.insertRestaurant(param);
             mealDao.insertMealHistory(param);
