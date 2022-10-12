@@ -8,9 +8,6 @@ import java.util.*;
 @SpringBootTest
 public class parkingPay {
 
-    HashMap<String, Integer> sortMap = new HashMap<>();
-    HashMap<String, String> parkingMap = new HashMap<>();
-    HashMap<String, Integer> resultMap = new HashMap<>();
 
     @Test
     public void test() {
@@ -27,42 +24,46 @@ public class parkingPay {
         Arrays.stream(solution(fees, records)).forEach(System.out::println);
     }
 
+    HashMap<String, String> parkingMap = new HashMap<>();
+    HashMap<String, Integer> resultMap = new HashMap<>();
     public int[] solution(int[] fees, String[] records) {
 
-        // 입/출차 시간 계산
+        // 1.누적 입/출차 시간 계산
+        Set<String> car = new HashSet<>();
         int cnt = 0;
         for (String record : records) {
             String[] arr = record.split(" ");
             parkingTime(arr);
-            if (sortMap.containsKey(arr[1])) continue;
-            sortMap.put(arr[1], cnt);
+            if (car.contains(arr[1])) continue;
+            car.add(arr[1]);
             cnt++;
         }
-        int[] answer = new int[cnt];
 
-        // 남아있는 차량 시간 계산
+        // 2.출차된 내역 없는 차량 시간 계산
         for (Map.Entry<String, String> map : parkingMap.entrySet()) {
             lastTime(map.getKey(), map.getValue());
         }
 
-        // 차량 번호 정렬
+        // 3.차량 번호 정렬
         List<String> keyList = new ArrayList<>(resultMap.keySet());
         Collections.sort(keyList);
-        cnt = 0;
 
-        // 요금 정산
+
+        // 4.요금 정산
+        int[] answer = new int[cnt];
+        int index = 0;
         for (String key : keyList) {
-            answer[cnt] = calculate(fees, resultMap.get(key));
-            cnt++;
+            answer[index] = calculate(fees, resultMap.get(key));
+            index++;
         }
 
         return answer;
     }
 
-    public void parkingTime(String[] info) {
-        String time = info[0];
-        String carNumber = info[1];
-        String inOut = info[2];
+    public void parkingTime(String[] record) {
+        String time = record[0];
+        String carNumber = record[1];
+        String inOut = record[2];
 
         if ("IN".equals(inOut)) {
             parkingMap.put(carNumber, time);
@@ -100,13 +101,13 @@ public class parkingPay {
         resultMap.put(carNumber, useTime);
     }
 
-    public int calculate(int[] fees, int value) {
+    public int calculate(int[] fees, int parkingTime) {
         int defaultTime = fees[0];
         int defaultPay = fees[1];
         int time = fees[2];
         int pay = fees[3];
 
-        int useTime = value;
+        int useTime = parkingTime;
 
         if (defaultTime >= useTime) {
             return defaultPay;
