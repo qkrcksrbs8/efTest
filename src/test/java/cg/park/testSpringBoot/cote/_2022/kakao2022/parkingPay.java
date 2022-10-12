@@ -28,6 +28,8 @@ public class parkingPay {
     }
 
     public int[] solution(int[] fees, String[] records) {
+
+        // 입/출차 시간 계산
         int cnt = 0;
         for (String record : records) {
             String[] arr = record.split(" ");
@@ -38,13 +40,17 @@ public class parkingPay {
         }
         int[] answer = new int[cnt];
 
+        // 남아있는 차량 시간 계산
         for (Map.Entry<String, String> map : parkingMap.entrySet()) {
             lastTime(map.getKey(), map.getValue());
         }
 
+        // 차량 번호 정렬
         List<String> keyList = new ArrayList<>(resultMap.keySet());
         Collections.sort(keyList);
         cnt = 0;
+
+        // 요금 정산
         for (String key : keyList) {
             answer[cnt] = calculate(fees, resultMap.get(key));
             cnt++;
