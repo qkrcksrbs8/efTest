@@ -6,15 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class Brtag {
 
-    public void print(String br) {
-        System.out.println("print: " + br);
-    }
-
-    public void replaceTag(String br) {
-        if (br != null) {
-            br = br.replace("<", "").replace(">", "");
-        }
-        System.out.println("replaceTag: " + br);
+    public String replaceTag(String br) {
+        return (br != null) ? br.replace("<", "").replace(">", "") : br;
     }
 
     public String replaceBr(String br) {
@@ -25,14 +18,13 @@ public class Brtag {
         return (br != null && br.indexOf("</br>") > -1) ? br.substring(0, br.indexOf("</br>")) : br;
     }
 
-
     @Test
     public void test() {
         System.out.println("====================test START====================");
         String br = "Well.. </br>hello";
-        print(br);
-        replaceTag(br);
-        System.out.println(replaceBr(br));
+        System.out.println("print: " + br);
+        System.out.println("replaceTag: " + replaceTag(br));
+        System.out.println("replaceBr: " + replaceBr(br));
         System.out.println("====================test E N D====================");
     }
 
@@ -40,9 +32,9 @@ public class Brtag {
     public void blank() {
         System.out.println("====================blank START====================");
         String br = "";
-        print(br);
-        replaceTag(br);
-        System.out.println(replaceBr(br));
+        System.out.println("print: " + br);
+        System.out.println("replaceTag: " + replaceTag(br));
+        System.out.println("replaceBr: " + replaceBr(br));
         System.out.println("====================blank E N D====================");
     }
 
@@ -50,9 +42,9 @@ public class Brtag {
     public void whiteSpaceTest() {
         System.out.println("====================whiteSpaceTest START====================");
         String br = "  ";
-        print(br);
-        replaceTag(br);
-        System.out.println(replaceBr(br));
+        System.out.println("print: " + br);
+        System.out.println("replaceTag: " + replaceTag(br));
+        System.out.println("replaceBr: " + replaceBr(br));
         System.out.println("====================whiteSpaceTest E N D====================");
     }
 
@@ -60,9 +52,9 @@ public class Brtag {
     public void nullTest() {
         System.out.println("====================nullTest START====================");
         String br = null;
-        print(br);
-        replaceTag(br);
-        System.out.println(replaceBr(br));
+        System.out.println("print: " + br);
+        System.out.println("replaceTag: " + replaceTag(br));
+        System.out.println("replaceBr: " + replaceBr(br));
         System.out.println("====================nullTest E N D====================");
     }
 }
