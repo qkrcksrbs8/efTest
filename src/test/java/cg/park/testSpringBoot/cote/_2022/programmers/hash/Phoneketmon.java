@@ -9,13 +9,6 @@ import java.util.stream.Collectors;
 @SpringBootTest
 public class Phoneketmon {
 
-
-    // 스트림을 사용.
-    // boxed(): int -> Integer, double -> Double
-    // collect: 데이터 타입 지정.
-    // Collectors.toSet().size(): set으로 중복 제거 후 Count
-    // (nums.length / 2): 입력 받은 폰켓몬 수 절반
-    // Integer.min 으로 둘 중 작은 수를 반환.
     public int solution(int[] nums) {
         return Integer.min(
                 Arrays.stream(nums)
