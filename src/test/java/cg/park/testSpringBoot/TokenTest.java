@@ -3,44 +3,67 @@ package cg.park.testSpringBoot;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @SpringBootTest
 public class TokenTest {
+
+
+    @Test
+    public void print() {
+
+        List<ggg> list = gggs();
+
+
+//        list.sort(Comparator.comparing(ggg::getDeDt).thenComparing(ggg::getDePtm));
+
+        list.sort(Comparator.comparing(ggg::getDeDt).thenComparing(ggg::getDePtm).reversed());
+
+        for (ggg g : list) {
+            System.out.println(g.getDeDt() + " " + g.getDePtm());
+        }
+
+
+        if (1 == 1) return;
+        Calendar calendar = new GregorianCalendar();
+        SimpleDateFormat SDF = new SimpleDateFormat("MM/dd");
+        calendar.add(Calendar.DATE, -1);
+        String yesterday = SDF.format(calendar.getTime());
+        System.out.println("Yesterday : " + yesterday);
+
+        Date d = new Date();
+
+
+
+        HashMap map1 = new HashMap<>();
+        HashMap map2 = new HashMap<>();
+
+//        map1.put("MO_IMG_ALT", "1111");
+//        map2.put("MO_IMG", "222");
+
+        map2.putAll(map1);
+
+        if (map2.containsKey("MO_IMG") || map2.containsKey("MO_IMG_ALT")) {
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!");
+        }
+
+
+
+    }
 
     @Test
     public void tokenTest() {
 
 
-        HashMap<String, String> map = new HashMap<>();
-        String aaa = map.getOrDefault("item", "");
-
-        System.out.println(aaa);
-        System.out.println("success");
-
-        if (1 == 1) {
-            return;
-        }
-
-
-        String code = "005";
-        if ("05".equals(code.substring(1))) {
-            System.out.println(code.substring(1));
-        }
-
-        LinkedList<Queue> q = new LinkedList<>();
-
-        String str1 = "/coupon/master";
-        String str2 = "/coupon/";
-
-        if (str2.startsWith(str1)) {
-            System.out.println("!!!!!!!!!!!!!!!!");
-        }
-
-        String data = "N||N|";
+        String data = "N||Y|";
         String[] target = data.split("\\|");
+        if ("Y".equals(target[0]) || "Y".equals(target[2])) {
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!");
+        }
+
+        if (1==1) return;
+
         String giftImg = "";
         String programImg = "";
 
@@ -62,7 +85,7 @@ public class TokenTest {
         }
 
         if (target.length != 4) {
-            System.out.println("¿À·ù ¹ß»ý!");
+            System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½!");
             return;
         }
 
@@ -86,4 +109,48 @@ public class TokenTest {
         return null == str || "".equals(str.trim());
     }
 
+    public List<ggg> gggs () {
+        String deDt = "20221108";
+        String dePtm = "153522";
+        List<ggg> g = new ArrayList<>();
+        ggg g3 = new ggg();
+        ggg g4 = new ggg();
+        g4.setDeDt("20221107");
+        g4.setDePtm("113522");
+        g.add(g4);
+        ggg g2 = new ggg();
+        g2.setDeDt("20221108");
+        g2.setDePtm("103522");
+        g.add(g2);
+        g3.setDeDt("20221107");
+        g3.setDePtm("153522");
+        g.add(g3);
+        ggg g1 = new ggg();
+        g1.setDeDt("20221108");
+        g1.setDePtm("153522");
+        g.add(g1);
+        return g;
+    }
+
+}
+
+class ggg {
+    String deDt;
+    String dePtm;
+
+    public String getDeDt() {
+        return deDt;
+    }
+
+    public void setDeDt(String deDt) {
+        this.deDt = deDt;
+    }
+
+    public String getDePtm() {
+        return dePtm;
+    }
+
+    public void setDePtm(String dePtm) {
+        this.dePtm = dePtm;
+    }
 }
