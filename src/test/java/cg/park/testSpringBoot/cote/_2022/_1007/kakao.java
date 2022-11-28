@@ -16,31 +16,69 @@ public class kakao {
         Arrays.stream(result).forEach(System.out::println);
     }
 
-    public int[] solution(int n, int[] info) {
-        int[] answer = {};
+    public int[] search(int n, int[] info) {
+        int resource = n;
+        int loopCnt = info.length;
 
-        int hit = 0;
-        for (int i : info) {
-            if (i > 0) {
-                hit++;
+        int maxScore = 0;
+        int loopScore = 0;
+        int[] result = new int[loopCnt];
+        int[] loopArray;
+        for (int i = 0; i < loopCnt; i++) {
+
+            loopScore = 0;
+            loopArray = new int[loopCnt];
+            resource = n;
+
+            int apeachScore = info[i];
+            if (apeachScore >= resource) return new int[]{-1};
+
+            resource -= apeachScore+1;
+            loopScore += 10-i;
+            loopArray[i] = apeachScore+1;
+
+            if (resource == 0) {
+                if (maxScore < loopScore) {
+                    maxScore = loopScore;
+                    result = new int[loopCnt];
+                    result[i] = apeachScore+1;
+                }
+                continue;
             }
-        }
-        if (hit >= n) {
-            return new int[]{-1};
-        }
 
-        int[] arr =  ifor(10, info);
+            for (int j = i+1; j < loopCnt-i; j++) {
 
-        return answer;
+                int matchScore = info[j];
+                if (matchScore >= resource) continue;
+                resource -= matchScore+1;
+                loopScore += 10-(i+1);
+                loopArray[j] = matchScore+1;
+
+            }
+
+            if (maxScore < loopScore) {
+                maxScore = loopScore;
+                result = loopArray;
+            }
+
+        }
+        return result;
     }
 
-    public int[] ifor(int i, int[] info) {
-        if (i == 0) return info;
-        int x = info[10-i];
+    public boolean isSameHit(int n, int[] info) {
+        int hit = 0;
+        for (int i : info)
+            if (i > 0) hit++;
 
-
-        return ifor(i-1, info);
+        return hit >= n;
     }
+
+    public int[] solution(int n, int[] info) {
+        if (isSameHit(n, info)) return new int[]{-1};// ���ʿ� ��� �� �ۿ� ������ -1
+
+        return search(n, info);
+    }
+
 
 
 }
