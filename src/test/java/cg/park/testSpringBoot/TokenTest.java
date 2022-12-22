@@ -13,6 +13,14 @@ public class TokenTest {
     @Test
     public void print() {
 
+        List<ggg> gs = gggs();
+
+        int count = (int) gs.stream().filter(g -> g.getPrintDate() != null).count();
+
+        System.out.println(count);
+
+        if (1 == 1) return;
+
         List<ggg> list = gggs();
 
 
@@ -54,7 +62,6 @@ public class TokenTest {
 
     @Test
     public void tokenTest() {
-
 
         String data = "N||Y|";
         String[] target = data.split("\\|");
@@ -121,9 +128,11 @@ public class TokenTest {
         ggg g2 = new ggg();
         g2.setDeDt("20221108");
         g2.setDePtm("103522");
+        g2.setPrintDate("111111");
         g.add(g2);
         g3.setDeDt("20221107");
         g3.setDePtm("153522");
+        g3.setPrintDate("22222");
         g.add(g3);
         ggg g1 = new ggg();
         g1.setDeDt("20221108");
@@ -137,6 +146,7 @@ public class TokenTest {
 class ggg {
     String deDt;
     String dePtm;
+    String printDate;
 
     public String getDeDt() {
         return deDt;
@@ -152,5 +162,13 @@ class ggg {
 
     public void setDePtm(String dePtm) {
         this.dePtm = dePtm;
+    }
+
+    public String getPrintDate() {
+        return printDate;
+    }
+
+    public void setPrintDate(String printDate) {
+        this.printDate = printDate;
     }
 }
