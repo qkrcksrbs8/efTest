@@ -5,50 +5,15 @@
 <html lang="ko">
 <head>
     <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Spring Boot Application</title>
-    <script type="application/javascript">
-        const countCheck = (field, max, type) => {
-            let name = field.name;
-            let checkCount = $("input:checkbox[name="+name+"]:checked").length
 
-            if (max == 1) {
-                $("input:checkbox[name="+name+"]:checked").each(function() {
-                    this.checked = false;
-                })
-                field.checked = true;
-                return false;
-            }
-
-            if (checkCount > max) {
-                alert(type+"타입은 최대 "+max+"개까지 가능합니다.");
-                field.checked = false;
-            }
-        }
-
-        const reload = (value) => {
-            location.href="/?grade="+value;
-        }
-
-        const regist = () => {
-            let checkList = [];
-            let cnt = 0;
-            $("input[type=checkbox]:checked").each(function() {
-                checkList[cnt] = this.value
-                cnt++;
-            });
-
-            alert(checkList);
-        }
-
-        const giftList = () => {
-            location.href = 'giftList';
-        }
-
-    </script>
 </head>
 <body>
+
+<input id="numericOnly" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" pattern="[0-9]*" inputmode="numeric" min="0" >
+
+
 <form method="POST" id="nbForm" action="/checkbox">
 <%--    <label><input type="checkbox" id="nb1" name="nb" value="all"> 전점 공통</label>--%>
 <%--    <label><input type="checkbox" id="nb2" name="nb" value="gr"> 구로</label>--%>
@@ -73,6 +38,8 @@
 <%--        <option value="DIAMOND"> DIAMOND </option>--%>
 <%--        <option value="GOLD"> GOLD </option>--%>
 <%--    </select>--%>
+
+    <input type="button" onclick="apiCouponDownload(1);" value="버튼입니다.">
 
     <input type="button" onclick="giftList();" value="명절선물">
     <p>
@@ -185,7 +152,84 @@
 <%--    </ul>--%>
     <p>
     <input type="button" onclick="regist();" value="신청">
-
 </form>
 </body>
+<script type="application/javascript">
+    const countCheck = (field, max, type) => {
+        let name = field.name;
+        let checkCount = $("input:checkbox[name="+name+"]:checked").length
+
+        if (max == 1) {
+            $("input:checkbox[name="+name+"]:checked").each(function() {
+                this.checked = false;
+            })
+            field.checked = true;
+            return false;
+        }
+
+        if (checkCount > max) {
+            alert(type+"타입은 최대 "+max+"개까지 가능합니다.");
+            field.checked = false;
+        }
+    }
+
+    const reload = (value) => {
+        location.href="/?grade="+value;
+    }
+
+    const regist = () => {
+        let checkList = [];
+        let cnt = 0;
+        $("input[type=checkbox]:checked").each(function() {
+            checkList[cnt] = this.value
+            cnt++;
+        });
+
+        alert(checkList);
+    }
+    const giftList = () => {
+        location.href = 'giftList';
+    }
+
+    function apiCouponDownload(couponIndexno) {
+        $.post('/mypage/api/coupon/'+couponIndexno, function (data){
+            apiCouponDownloadMsg(data.code, data.msg);
+        })
+    }
+
+    function apiCouponDownloadMsg(code, msg) {
+        if (code == 'P') {
+            alert ('쿠폰번호를 확인해주세요.');
+            return false;
+        }
+        if (code == 'L') {
+            alert ('로그인 후에 사용해주세요.');
+            return false;
+        }
+        if (code == 'C') {
+            alert ('한정수량 마감되었습니다.');
+            return false;
+        }
+        if (code == 'E') {
+            alert ('기한만료된 쿠폰입니다.');
+            return false;
+        }
+        if (code == 'M') {
+            alert ('이미 보유한 쿠폰입니다.');
+            return false;
+        }
+        if (code == 'D') {
+            alert (msg);
+            return false;
+        }
+        if (code == 'S') {
+            alert ('쿠폰이 발급되었습니다.\n보유쿠폰에서 확인 할 수 있습니다.');
+            return false;
+        }
+        if (code == 'F') {
+            alert ('쿠폰 발글 중 오류가 발생했습니다.');
+            return false;
+        }
+    }
+</script>
 </html>
