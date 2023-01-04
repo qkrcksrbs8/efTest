@@ -1,6 +1,7 @@
 package cg.park.testSpringBoot.git;
 
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.util.StringUtils;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.BufferedReader;
@@ -27,7 +28,7 @@ public class GitTest {
             Git git = new Git();
             while ((line = reader.readLine()) != null) {
 
-                if ("".equals(line)) continue;
+                if (StringUtils.isBlank(line)) continue;
                 if (1 == cnt) {
                     git.setCommitId(line);
                 }
