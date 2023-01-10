@@ -43,10 +43,10 @@ public class MainController {
 
         return new MavUtil()
                 .viewName("index")
-                .setObject("divisionList", selectNoticeService.execute())
-                .setObject("gradeList", gradeList.execute())
-                .setObject("grade", holydayEvent.getGrade() == null? "DIAMOND" : holydayEvent.getGrade())
-                .setObject("holydayEventList", holydayEventList.execute(new Param("GRADE", holydayEvent.getGrade() == null ? "DIAMOND" : holydayEvent.getGrade())));
+                .setObject("divisionList"       , selectNoticeService.execute())
+                .setObject("gradeList"          , gradeList.execute())
+                .setObject("grade"              , holydayEvent.getGrade() == null? "DIAMOND" : holydayEvent.getGrade())
+                .setObject("holydayEventList"   , holydayEventList.execute(new Param("GRADE", holydayEvent.getGrade() == null ? "DIAMOND" : holydayEvent.getGrade())));
     }
 
     @PostMapping("/checkbox")
