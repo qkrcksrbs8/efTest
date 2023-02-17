@@ -23,12 +23,10 @@ public class mockTest {
 
     public int[] solution(int[] answers) {
 
-        // 1. 답안지 작성 패턴
         int[] person1 = {1, 2, 3, 4, 5};
         int[] person2 = {2, 1, 2, 3, 2, 4, 2, 5};
         int[] person3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
 
-        // 2. 각 수포자 정답 수 계산
         int[] cnt = new int[3];
         for(int i=0; i < answers.length; i++){
             if(answers[i] == person1[i%5]) cnt[0]++;
@@ -36,7 +34,6 @@ public class mockTest {
             if(answers[i] == person3[i%10]) cnt[2]++;
         }
 
-        // 3. 최고 득점자 출력
         return maxIntegers(maxScore(cnt), cnt)
                 .stream()
                 .mapToInt(Integer::intValue)
