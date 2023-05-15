@@ -69,5 +69,24 @@ public class ExcelUpload {
 //            return new Message(false, "·ê·¿ ¹øÈ£ µî·Ï ¾ç½Ä¿¡ ¸ÂÃçÁÖ¼¼¿ä.");
 //        }
 //    }
+//
+//    private String cellValue(Cell c) {
+//        if (CellType.FORMULA == c.getCellTypeEnum())
+//            return c.getCellFormula();
+//
+//        if (CellType.NUMERIC == c.getCellTypeEnum())
+//            return cellNumericValue(c);
+//
+//        if (CellType.STRING == c.getCellTypeEnum())
+//            return c.getStringCellValue();
+//
+//        return "";
+//    }
+//
+//    private String cellNumericValue(Cell c) {
+//        return (DateUtil.isCellDateFormatted(c))
+//                ? new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(c.getDateCellValue())
+//                : (int) Math.round(c.getNumericCellValue())+"";
+//    }
 
 }
