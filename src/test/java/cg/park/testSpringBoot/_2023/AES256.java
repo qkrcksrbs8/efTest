@@ -23,9 +23,10 @@ public class AES256 {
 
     public String decrypt(String cipherText) throws Exception {
         Cipher cipher = Cipher.getInstance(alg);
-        SecretKeySpec keySpec = new SecretKeySpec(key.getBytes(), "AES");
-        IvParameterSpec ivParamSpec = new IvParameterSpec(iv.getBytes());
-        cipher.init(Cipher.DECRYPT_MODE, keySpec, ivParamSpec);
+        cipher.init(Cipher.DECRYPT_MODE
+                , new SecretKeySpec(key.getBytes(), "AES")
+                , new IvParameterSpec(iv.getBytes())
+        );
 
         byte[] decodedBytes = Base64.getDecoder().decode(cipherText);
         byte[] decrypted = cipher.doFinal(decodedBytes);
