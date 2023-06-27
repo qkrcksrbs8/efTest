@@ -10,6 +10,16 @@
     <title>Spring Boot Application</title>
     <script type="application/javascript">
 
+        $(function(){
+            window.onpopstate = function(event){
+                alert('뒤로가기!!');
+                // showPopupLayer('/apply/template/popup/211020pop', {}, false,'temPop');
+            };
+        });
+
+        const onPushState = () => {
+            $("#btn").click();
+        }
 
         const setCookie = (name, value, expiredays) => {
             var date = new Date();
@@ -17,8 +27,12 @@
             document.cookie = escape(name) + "=" + escape(value) + "; expires=" + date.toUTCString();
         }
 
-        const closePopup = () => {
-                setCookie("popupYN", "N", 1);
+        const setVisit = (cnt) => {
+            setCookie("popupYN", cnt, 1);
+        }
+
+        const closePopup = (cnt) => {
+                setCookie("popupYN", cnt, 1);
                 // self.close();
             $("#cookiePop").css("display", "none"); // 이거대신 위에 close
         }
@@ -40,30 +54,33 @@
         }
 
         const openPopup = () => {
-            var cookieCheck = getCookie("popupYN");
-            if (cookieCheck != "N") {
-                if (confirm("첫 구매 감사 쿠폰 도착(하트)")) {
-                    if (confirm("다운로드")) {
-                        if (confirm("보유쿠폰함 바로가기")) {
-                            alert("페이지 이동 하였음.");
-                        }
-                    }
-                    closePopup();
-                    return false;
-                }
+            let cookieCheck = getCookie("popupYN");
+            if ("1" == cookieCheck) {
 
-                closePopup();
+                alert('두 번째 팝업');
+                setVisit("2");// 두 번째 방문 기록
                 return false;
             }
-            alert("쿠키 있음");
-        }
 
+            if ("2" == cookieCheck) {
+
+                alert('세 번째 팝업');
+                setVisit("2");// 세 번째 방문 기록
+                return false;
+            }
+            // ...
+
+            alert('첫 방문 팝업');
+            setVisit("1");// 첫 번째 방문 기록
+            return false;
+        }
 
     </script>
 </head>
-<body onload="javascript:openPopup()">
+<body onload="javascript:onPushState()">
 
 안녕하세요.
 
+<input type="hidden" id="btn"></input>
 </body>
 </html>
