@@ -12,7 +12,7 @@ public class AsyncTest {
 
     @Test
     public void test() {
-        Executor executor = Executors.newFixedThreadPool(30);
+        Executor executor = Executors.newFixedThreadPool(1);
 
         CompletableFuture.runAsync(() -> {
             try {
