@@ -11,20 +11,19 @@ public class AsyncTestController {
         System.out.println("============ Test Start ============");
         new Thread(() -> asyncTest()).start();
         System.out.println("============ Test E n d ============");
-        try {
-            Thread.sleep(3000L);
-        }
-        catch (Exception e) {
-            System.out.println(e);
-        }
+        sleep(3000L);
         System.out.println("test E N D !!!!");
     }
 
     public void asyncTest() {
         System.out.println("async start");
+        sleep(3000L);
+        System.out.println("async access!!!!!!");
+    }
+
+    public void sleep(long millis) {
         try {
-            Thread.sleep(3000L);
-            System.out.println("async access!!!!!!");
+            Thread.sleep(millis);
         }
         catch (Exception e) {
             System.out.println(e);
