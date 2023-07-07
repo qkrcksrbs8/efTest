@@ -24,6 +24,7 @@ public class AsyncTestController {
     public void sleep(long millis) {
         try {
             Thread.sleep(millis);
+//            Thread.interrupted();
         }
         catch (Exception e) {
             System.out.println(e);
