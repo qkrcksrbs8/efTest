@@ -30,13 +30,6 @@ public class CodeTest2 {
     @Test
     public void selectCodeTest() {
 
-
-
-//        String dd = String.format("%02d", LocalDate.now().getDayOfMonth());
-//        System.out.println("======");
-//        System.out.println(dd);
-//        System.out.println("======");
-
     }
 
     @Test
