@@ -51,8 +51,7 @@ public class MainController {
 
     @PostMapping("/checkbox")
     public String checkbox(HttpServletRequest request, Model model) {
-        List<String> nbs = Arrays.asList(request.getParameterValues("nb"));
-        Param dbNoticeCode = defaultDbNoticeCode( noticeCodeDao(), nbs );
+        Param dbNoticeCode = defaultDbNoticeCode( noticeCodeDao(), Arrays.asList(request.getParameterValues("nb")));
         logger.info(dbNoticeCode.toString());
         return "redirect:/";
     }
