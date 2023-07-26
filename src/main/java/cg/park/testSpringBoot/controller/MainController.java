@@ -69,7 +69,6 @@ public class MainController {
 
     @GetMapping("/cookie")
     public ModelAndView cookie() {
-        System.out.println("쿠키 진입!!");
         return new MavUtil()
                 .viewName("cookie");
     }
