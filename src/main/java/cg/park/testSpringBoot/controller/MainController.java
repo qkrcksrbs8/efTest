@@ -63,14 +63,12 @@ public class MainController {
     }
 
     private Param defaultDbNoticeCode(Param param, List<String> branchDivisions) {
-        return new NoticeUtil(param)
-                .noticeFor(branchDivisions, 1);
+        return new NoticeUtil(param).noticeFor(branchDivisions, 1);
     }
 
     @GetMapping("/cookie")
     public ModelAndView cookie() {
-        return new MavUtil()
-                .viewName("cookie");
+        return new MavUtil().viewName("cookie");
     }
 
     @GetMapping("/giftList")
