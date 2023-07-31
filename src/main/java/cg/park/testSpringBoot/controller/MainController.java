@@ -68,7 +68,7 @@ public class MainController {
 
     @GetMapping("/cookie")
     public ModelAndView cookie() {
-        return new MavUtil().viewName("cookie");
+        return new MavUtil("cookie");
     }
 
     @GetMapping("/giftList")
