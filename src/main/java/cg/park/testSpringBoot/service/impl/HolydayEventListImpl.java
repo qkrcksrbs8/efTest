@@ -34,20 +34,18 @@ public class HolydayEventListImpl extends CommandAbstractService {
         String type = "";
         List<HolydayEvent> result = new ArrayList<>();
         for (HolydayEvent holy : list) {
-            if ("".equals(type)) {
-                type = holy.getType();
-                holy.setBannerFg("Y");
-                result.add(holy);
-                continue;
-            }
-            if (!type.equals(holy.getType())) {
-                type = holy.getType();
-                holy.setBannerFg("Y");
-                result.add(holy);
+            if ("".equals(type) || !type.equals(holy.getType())) {
+                type = makeHolydayEventType(holy, result);
                 continue;
             }
             result.add(holy);
         }
         return result;
+    }
+
+    public String makeHolydayEventType(HolydayEvent holy, List<HolydayEvent> result) {
+        holy.setBannerFg("Y");
+        result.add(holy);
+        return holy.getType();
     }
 }
