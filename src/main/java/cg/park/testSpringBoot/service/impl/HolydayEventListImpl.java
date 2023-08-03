@@ -34,7 +34,7 @@ public class HolydayEventListImpl extends CommandAbstractService {
         String type = "";
         List<HolydayEvent> result = new ArrayList<>();
         for (HolydayEvent holy : list) {
-            if ("".equals(type) || !type.equals(holy.getType())) {
+            if (containType(type, holy.getType())) {
                 type = makeHolydayEventType(holy, result);
                 continue;
             }
@@ -48,4 +48,13 @@ public class HolydayEventListImpl extends CommandAbstractService {
         result.add(holy);
         return holy.getType();
     }
+
+    public boolean isBlank(String str) {
+        return null == str || "".equals(str.trim());
+    }
+
+    public boolean containType(String type1, String type2) {
+        return !isBlank(type1) && type1.equals(type2);
+    }
+
 }
