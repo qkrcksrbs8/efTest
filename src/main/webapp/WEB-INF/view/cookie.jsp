@@ -75,11 +75,72 @@
             return false;
         }
 
+
+        let addUl = () => {
+            let memUl = document.createElement("ul");
+            memUl.setAttribute("class", "aaaa");
+            let memLi1 = document.createElement("li");
+            let memLi2 = document.createElement("li");
+            let memLi3 = document.createElement("li");
+            let memLi4 = document.createElement("li");
+            let str1 = document.createElement("strong");
+            let str2 = document.createElement("strong");
+            let str3 = document.createElement("strong");
+            let str4 = document.createElement("strong");
+            let sp1 = document.createElement("spen");
+            let sp2 = document.createElement("spen");
+            let sp3 = document.createElement("spen");
+            let sp4 = document.createElement("spen");
+            str1.appendChild(document.createTextNode('첫 번째 : '));
+            str2.appendChild(document.createTextNode('두 번째 :'));
+            str3.appendChild(document.createTextNode('세 번째 : '));
+            str4.appendChild(document.createTextNode('네 번째 : '));
+            sp1.appendChild(document.createTextNode('오잉'));
+            sp2.appendChild(document.createTextNode('또잉'));
+            sp3.appendChild(document.createTextNode('오우'));
+            sp4.appendChild(document.createTextNode('fiveCow'));
+            str1.appendChild(sp1);
+            str2.appendChild(sp2);
+            str3.appendChild(sp3);
+            str4.appendChild(sp4);
+            memLi1.appendChild(str1);
+            memLi2.appendChild(str2);
+            memLi3.appendChild(str3);
+            memLi4.appendChild(str4);
+
+            // div > a > span 선택버튼 생성
+            let memA = document.createElement("a");
+            let memSp1 = document.createElement("span");
+            let memSp2 = document.createElement("span");
+            memSp1.appendChild(document.createTextNode('선'));
+            memSp2.appendChild(document.createTextNode('택'));
+            memA.appendChild(memSp1);
+            memA.appendChild(memSp2);
+            memA.setAttribute("class", "cccc");
+
+            memUl.appendChild(memLi1);
+            memUl.appendChild(memLi2);
+            memUl.appendChild(memLi3);
+            memUl.appendChild(memLi4);
+
+            let memDiv = document.createElement("div");
+            memDiv.setAttribute("class", "bbb");
+            memDiv.appendChild(memA);
+
+            $("#memberTable").empty().append(memUl).append(memDiv);
+        }
+
+
     </script>
 </head>
 <body onload="javascript:onPushState()">
 
 안녕하세요.
+<button style="width:100px; height:50px;" onclick="addUl();"> 테이블 생성 </button>
+
+<div id="memberTable">
+
+</div>
 
 <input type="hidden" id="btn"></input>
 </body>
