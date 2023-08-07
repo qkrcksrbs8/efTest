@@ -127,7 +127,7 @@
             memDiv.setAttribute("class", "bbb");
             memDiv.appendChild(memA);
 
-            $("#memberTable").empty().append(memUl).append(memDiv);
+            $("#pcgTable").empty().append(memUl).append(memDiv);
         }
 
 
@@ -138,7 +138,7 @@
 안녕하세요.
 <button style="width:100px; height:50px;" onclick="addUl();"> 테이블 생성 </button>
 
-<div id="memberTable">
+<div id="pcgTable">
 
 </div>
 
