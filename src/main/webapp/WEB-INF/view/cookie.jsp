@@ -77,57 +77,57 @@
 
 
         let addUl = () => {
-            let memUl = document.createElement("ul");
-            memUl.setAttribute("class", "aaaa");
-            let memLi1 = document.createElement("li");
-            let memLi2 = document.createElement("li");
-            let memLi3 = document.createElement("li");
-            let memLi4 = document.createElement("li");
-            let str1 = document.createElement("strong");
-            let str2 = document.createElement("strong");
-            let str3 = document.createElement("strong");
-            let str4 = document.createElement("strong");
-            let sp1 = document.createElement("spen");
-            let sp2 = document.createElement("spen");
-            let sp3 = document.createElement("spen");
-            let sp4 = document.createElement("spen");
-            str1.appendChild(document.createTextNode('첫 번째 : '));
-            str2.appendChild(document.createTextNode('두 번째 :'));
-            str3.appendChild(document.createTextNode('세 번째 : '));
-            str4.appendChild(document.createTextNode('네 번째 : '));
-            sp1.appendChild(document.createTextNode('오잉'));
-            sp2.appendChild(document.createTextNode('또잉'));
-            sp3.appendChild(document.createTextNode('오우'));
-            sp4.appendChild(document.createTextNode('fiveCow'));
-            str1.appendChild(sp1);
-            str2.appendChild(sp2);
-            str3.appendChild(sp3);
-            str4.appendChild(sp4);
-            memLi1.appendChild(str1);
-            memLi2.appendChild(str2);
-            memLi3.appendChild(str3);
-            memLi4.appendChild(str4);
+            let pcgUl = document.createElement("ul");
+            pcgUl.setAttribute("class", "aaaa");
+            let pcgLi1 = document.createElement("li");
+            let pcgLi2 = document.createElement("li");
+            let pcgLi3 = document.createElement("li");
+            let pcgLi4 = document.createElement("li");
+            let pcgStr1 = document.createElement("strong");
+            let pcgStr2 = document.createElement("strong");
+            let pcgStr3 = document.createElement("strong");
+            let pcgStr4 = document.createElement("strong");
+            let pcgSp1 = document.createElement("spen");
+            let pcgSp2 = document.createElement("spen");
+            let pcgSp3 = document.createElement("spen");
+            let pcgSp4 = document.createElement("spen");
+            pcgStr1.appendChild(document.createTextNode('첫 번째 : '));
+            pcgStr2.appendChild(document.createTextNode('두 번째 :'));
+            pcgStr3.appendChild(document.createTextNode('세 번째 : '));
+            pcgStr4.appendChild(document.createTextNode('네 번째 : '));
+            pcgSp1.appendChild(document.createTextNode('오잉'));
+            pcgSp2.appendChild(document.createTextNode('또잉'));
+            pcgSp3.appendChild(document.createTextNode('오우'));
+            pcgSp4.appendChild(document.createTextNode('fiveCow'));
+            pcgStr1.appendChild(pcgSp1);
+            pcgStr2.appendChild(pcgSp2);
+            pcgStr3.appendChild(pcgSp3);
+            pcgStr4.appendChild(pcgSp4);
+            pcgLi1.appendChild(pcgStr1);
+            pcgLi2.appendChild(pcgStr2);
+            pcgLi3.appendChild(pcgStr3);
+            pcgLi4.appendChild(pcgStr4);
 
             // div > a > span 선택버튼 생성
-            let memA = document.createElement("a");
-            let memSp1 = document.createElement("span");
-            let memSp2 = document.createElement("span");
-            memSp1.appendChild(document.createTextNode('선'));
-            memSp2.appendChild(document.createTextNode('택'));
-            memA.appendChild(memSp1);
-            memA.appendChild(memSp2);
-            memA.setAttribute("class", "cccc");
+            let pcgA = document.createElement("a");
+            let pcgSpan1 = document.createElement("span");
+            let pcgSpan2 = document.createElement("span");
+            pcgSpan1.appendChild(document.createTextNode('선'));
+            pcgSpan2.appendChild(document.createTextNode('택'));
+            pcgA.appendChild(pcgSpan1);
+            pcgA.appendChild(pcgSpan2);
+            pcgA.setAttribute("class", "cccc");
 
-            memUl.appendChild(memLi1);
-            memUl.appendChild(memLi2);
-            memUl.appendChild(memLi3);
-            memUl.appendChild(memLi4);
+            pcgUl.appendChild(pcgLi1);
+            pcgUl.appendChild(pcgLi2);
+            pcgUl.appendChild(pcgLi3);
+            pcgUl.appendChild(pcgLi4);
 
-            let memDiv = document.createElement("div");
-            memDiv.setAttribute("class", "bbb");
-            memDiv.appendChild(memA);
+            let pcgDiv = document.createElement("div");
+            pcgDiv.setAttribute("class", "bbb");
+            pcgDiv.appendChild(pcgA);
 
-            $("#pcgTable").empty().append(memUl).append(memDiv);
+            $("#pcgTable").empty().append(pcgUl).append(pcgDiv);
         }
 
 
