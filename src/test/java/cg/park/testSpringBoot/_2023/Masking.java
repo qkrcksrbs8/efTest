@@ -21,10 +21,17 @@ public class Masking {
 
     public String idMasking(String id) {
         if (null == id) return "";
-        if (id.length() < 5) return id;
+        int cnt = id.length();
+        if (2 > cnt) return id;
 
         StringBuffer sb = new StringBuffer();
-        int cnt = id.length();
+        if (id.length() < 5) {
+            for (int i = 0; i < cnt; i++) {
+//                if ()
+            }
+            return id;
+        }
+
         for (int i = 0; i < cnt; i++)
             sb.append((i >= 4) ? "*" : id.charAt(i));
 
