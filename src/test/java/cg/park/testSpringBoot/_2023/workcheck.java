@@ -12,7 +12,13 @@ public class workcheck {
 
     public boolean straightCheck(String password) {
         if (null == password || "".equals(password)) return false;
-        // add length check
+
+        // int validationCount = 0;
+        // 대문자 포함여부 ++
+        // 소문자 포함 여부 ++
+        // 숫자 포함 여부 ++
+        // 특수문자 포함 여부 ++
+        // 4 ? true : false
 
         int straightCount = 0;
         int straightCountPlus = 0;
@@ -21,27 +27,16 @@ public class workcheck {
         char charAt;
         char charAtPlus;
 
-        int passwordCount = password.length();
-        for (int i = 0; i < passwordCount; i++) {
+        for (int i = 0; i < password.length(); i++) {
             charAt = password.charAt(i);
             charAtPlus = password.charAt(i+1);
 
-            if (charAt == charAtPlus)
-                straightCount++;
+            straightCount = (charAt == charAtPlus) ? straightCount++ : 0;
+            if (straightCount > 2) return false;
 
-            if ((charAt - charAtPlus) == 1)
-                straightCountPlus++;
-
-            if ((charAt - charAtPlus) == -1)
-                straightCountMinus++;
-        }
-
-        if (straightCount > 2) {
-            // straightCount -> same word count
-        }
-
-        if (straightCountPlus > 2 || straightCountMinus > 2) {
-            // straightCountPlus, straightCountMinus -> straight word count
+            straightCountPlus = ((charAt - charAtPlus) == 1) ? straightCountPlus++ : 0;
+            straightCountMinus = ((charAt - charAtPlus) == -1) ? straightCountMinus++ : 0;
+            if (straightCountPlus > 2 || straightCountMinus > 2) return false;
         }
 
         return true;
