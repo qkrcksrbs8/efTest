@@ -41,4 +41,10 @@ public class straightQuery {
 //    where straightDate >= 3
 //    group by mem_id
 //    ;
+
+
+
+
+//    AND a.date >= to_date('20230901', 'yyyyMMdd')
+//    AND a.date < to_date('20230931', 'yyyyMMdd') + 1
 }
