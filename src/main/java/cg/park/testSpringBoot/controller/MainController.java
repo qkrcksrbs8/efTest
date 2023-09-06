@@ -79,4 +79,9 @@ public class MainController {
                 .setObject("grade", holydayEvent.getGrade() == null? "SILVER" : holydayEvent.getGrade())
                 .setObject("holydayEventList", holydayGiftList.execute(new Param("GRADE", holydayEvent.getGrade() == null ? "SILVER" : holydayEvent.getGrade())));
     }
+
+    @GetMapping("/test")
+    public ModelAndView test() {
+        return new MavUtil("test");
+    }
 }
