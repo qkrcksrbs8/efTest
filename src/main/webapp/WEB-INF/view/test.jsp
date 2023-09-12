@@ -15,9 +15,10 @@
 <div class="vreview-summary-widget"></div>
 
 <form method="POST" id="nbForm" action="/checkbox">
-    <input type="button" onclick="" value="버튼입니다.">
+    <input type="button" onclick="placeholderCheck();" value="버튼입니다.">
 
     <input type="button" onclick="" value="신청">
+    <input type="text" id="placeholderCheck_id" name="placeholderCheck_id" value="" placeholder="‘-’ 없이 번호만 입력해주세요.">
 </form>
 
 
@@ -57,6 +58,13 @@
         $.post('/mypage/api/coupon/'+couponIndexno, function (data){
             apiCouponDownloadMsg(data.code, data.msg);
         })
+    }
+
+    const placeholderCheck = () => {
+        let id = $("input[name=placeholderCheck_id]").val();
+        let holder = $("input[name=placeholderCheck_id]").attr("placeholder");
+
+        alert('id: '+id +'\nholder: '+holder);
     }
 
 </script>
