@@ -11,6 +11,7 @@
     <script type="application/javascript">
 
         $(function(){
+
             window.onpopstate = function(event){
                 alert('뒤로가기!!');
                 // showPopupLayer('/apply/template/popup/211020pop', {}, false,'temPop');
