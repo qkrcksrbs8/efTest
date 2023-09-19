@@ -9,6 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Spring Boot Application</title>
     <script type="application/javascript">
+
         const countCheck = (field, max) => {
             let name = field.name;
 
