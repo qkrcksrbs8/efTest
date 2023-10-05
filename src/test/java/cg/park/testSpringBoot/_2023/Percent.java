@@ -22,8 +22,8 @@ public class Percent {
 
         int totalDailyCount = 0;
         for (RouletteCoupon rc : list) {
-            totalDailyCount += Integer.parseInt(rc.getRemnantCount());
-            System.out.println("rc.getGift(): "+ rc.getGift() + " rc.getRemnantCount(): "+totalDailyCount);
+            totalDailyCount += Integer.parseInt(rc.getDailyCount());
+            System.out.println("rc.getGift(): "+ rc.getGift() + " rc.getDaily(): "+totalDailyCount);
             rc.setTotalDailyCount(String.valueOf(totalDailyCount));
         }
 
