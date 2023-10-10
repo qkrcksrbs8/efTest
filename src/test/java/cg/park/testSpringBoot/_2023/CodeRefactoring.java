@@ -1,6 +1,7 @@
 package cg.park.testSpringBoot._2023;
 
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.util.StringUtils;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
@@ -10,11 +11,13 @@ public class CodeRefactoring {
 
     @Test
     public void test() {
-        System.out.println(splitAndsum(null));
-        System.out.println(splitAndsum(""));
-        System.out.println(splitAndsum("1"));
-        System.out.println(splitAndsum("1,2"));
-        System.out.println(splitAndsum("1,2:3"));
+//        System.out.println(splitAndsum(null));
+//        System.out.println(splitAndsum(""));
+//        System.out.println(splitAndsum("1"));
+//        System.out.println(splitAndsum("1,2"));
+//        System.out.println(splitAndsum("1,2:3"));
+
+        testPrint();
     }
 
 
@@ -53,4 +56,27 @@ public class CodeRefactoring {
         return Arrays.stream(values).mapToInt(Integer::parseInt).toArray();
     }
 
+
+
+
+    public void testPrint() {
+        print("Y");
+        print("N");
+        print("");
+        print(null);
+    }
+    public void print(String str) {
+        System.out.println(isY(str));
+    }
+
+    // 매개변수로 받은 값이 Y인지 체크
+    // Y라면 true 리턴
+    public boolean isY(String str) {
+        return !StringUtils.isBlank(str) && "Y".equals(str);
+    }
+
+
 }
+
+
+
