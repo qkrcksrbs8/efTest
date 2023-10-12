@@ -17,7 +17,8 @@ public class CodeRefactoring {
 //        System.out.println(splitAndsum("1,2"));
 //        System.out.println(splitAndsum("1,2:3"));
 
-        testPrint();
+//        testPrint();
+
     }
 
 
