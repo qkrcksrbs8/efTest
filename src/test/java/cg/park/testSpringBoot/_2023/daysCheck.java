@@ -11,10 +11,16 @@ public class daysCheck {
     public void test() {
         String startDate = "20230809";
         String endDate = "20230831";
-        String today = "20230809";
+        String today = "20231111";
 
         if (startDate.compareTo(today) <= 0 && endDate.compareTo(today) >= 0) {
             System.out.println("!!!!!!!!!!!!!!!!!!!!!!!");
+        }
+
+        String newDate = "20231111";
+
+        if (newDate.compareTo(today) > 0) {
+            System.out.println("@@@@@@@@@@@@@@@@@@@@");
         }
 
     }
