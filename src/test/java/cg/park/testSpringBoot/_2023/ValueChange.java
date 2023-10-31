@@ -50,11 +50,5 @@ public class ValueChange {
         }
 
         System.out.println(paramB.get("code"));
-        // case3
-        // case2
-        // case3
-        // case1
-        // case1
-        // case1
     }
 }
