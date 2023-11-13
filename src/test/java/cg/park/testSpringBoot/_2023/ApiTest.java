@@ -13,8 +13,14 @@ public class ApiTest {
 
     @Test
     public void test() {
+
+        String url = "https://api.example.com/data";
+        send(url);
+
+    }
+
+    public void send(String url) {
         try {
-            String url = "https://api.example.com/data";
 
             // URL 객체 생성
             URL apiUrl = new URL(url);
@@ -47,7 +53,5 @@ public class ApiTest {
         catch (Exception e) {
             System.out.println("ERROR: "+e);
         }
-
-
     }
 }
