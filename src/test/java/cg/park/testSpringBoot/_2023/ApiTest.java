@@ -27,6 +27,7 @@ public class ApiTest {
 
             // HttpURLConnection 객체 생성
             HttpURLConnection connection = (HttpURLConnection) apiUrl.openConnection();
+//            HttpsURLConnection connection = (HttpsURLConnection) apiUrl.openConnection();
 
             // 요청 메서드 설정 (GET)
             connection.setRequestMethod("GET");
