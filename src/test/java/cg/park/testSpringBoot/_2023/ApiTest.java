@@ -64,7 +64,7 @@ public class ApiTest {
     }
 
     public void test2 () {
-        //파라미터 담기
+        //post body data
 //        String strParam = "param1=apple&param2=banana&param3=grape";
 
         // 요청 URL
@@ -103,7 +103,7 @@ public class ApiTest {
 
             // 송신할 데이터 전송.
             DataOutputStream dos = new DataOutputStream(con.getOutputStream());
-//            dos.writeBytes(strParam);
+//            dos.writeBytes(strParam);// post body data
             dos.flush();
             dos.close();
 
