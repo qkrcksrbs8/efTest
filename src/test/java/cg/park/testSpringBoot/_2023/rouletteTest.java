@@ -20,7 +20,7 @@ public class rouletteTest {
 
     public String result(Integer _eventSeq, Integer prize) {
         if (_eventSeq == 90)
-            return commRouletteResult(prize, new String[]{"상쾌환 3개입", "빽다방 앗메리카노 HOT", "맥도날드 초코 선데이 아이스크림"});
+            return commRouletteResult(prize, new String[]{"1번 상품", "2번 상품", "3번 상품"});
 
         return "없음";
     }
