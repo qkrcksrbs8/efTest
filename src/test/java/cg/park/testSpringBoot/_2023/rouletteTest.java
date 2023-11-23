@@ -19,10 +19,9 @@ public class rouletteTest {
     }
 
     public String result(Integer _eventSeq, Integer prize) {
-        if (_eventSeq == 90)
-            return commRouletteResult(prize, new String[]{"1번 상품", "2번 상품", "3번 상품"});
-
-        return "없음";
+        return (_eventSeq == 90)
+                ? commRouletteResult(prize, new String[]{"1번 상품", "2번 상품", "3번 상품"})
+                : "없음";
     }
 
     private int rouletteNum(int random, int defaultNum) {
