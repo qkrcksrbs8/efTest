@@ -8,10 +8,10 @@ public class logiccalTest {
 
     @Test
     public void test () {
-        String stampCode = "STAMP001";
-        if (!("STAMP001".equals(stampCode) || "STAMP002".equals(stampCode)
-                || "STAMP003".equals(stampCode) ||"STAMP004".equals(stampCode)
-                || "STAMP005".equals(stampCode) || "STAMP006".equals(stampCode))
+        String stampCode = "S01";
+        if (!("S01".equals(stampCode) || "S02".equals(stampCode)
+                || "S03".equals(stampCode) ||"S04".equals(stampCode)
+                || "S05".equals(stampCode) || "S06".equals(stampCode))
         ) {
             System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
@@ -22,8 +22,8 @@ public class logiccalTest {
 
     @Test
     public void test2 () {
-        String str1 = "/kor/enjoy/event/list";
-        String str2 = "/WEB-INF/views/pc/enjoy/event/list.jsp";
+        String str1 = "/list";
+        String str2 = "/WEB-INF/views/list.jsp";
 
         System.out.println("============================================================");
         System.out.println(replaceJsp(str1));
@@ -33,8 +33,8 @@ public class logiccalTest {
 
     public String replaceJsp (String str) {
         return str
-                .replace("WEB-INF/views/pc", "kor")
-                .replace("WEB-INF/views/mo", "kor")
+                .replace("/pc", "kor")
+                .replace("/mo", "kor")
                 .replace(".jsp", "");
     }
 
