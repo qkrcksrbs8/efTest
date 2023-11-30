@@ -13,7 +13,7 @@ public class textExtraction {
             System.out.println("confirm!!!!");
         }
 
-        String url = "https://api.happysync.io/api/v1/oauth/kakao/63b177528f502a707b8b5b3e";
+        String url = "";
 
         if (contains(url, "happysync", "kakao")) {
             System.out.println("save!!!!!!");
