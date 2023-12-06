@@ -22,7 +22,13 @@ public class AddList {
 
         list.addAll(list2);
 
+        for (String str : list) {
+            str = str+"COPY";
+        }
+
         System.out.println("size: "+list.size());
+
+        list.stream().forEach(System.out::println);
 
     }
 }
