@@ -48,6 +48,11 @@ public class Param extends HashMap {
         return this;
     }
 
+    public Param set(int column, int value) {
+        super.put(column, value);
+        return this;
+    }
+
     public Param code(String code) {
         super.put("code", code);
         return this;
