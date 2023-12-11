@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class YyyymmddCheck {
 
     @Test
-    public void test() {
+    public void test()       {
         System.out.println("isInvalidDate: "+isInvalidDate("20231207"));
     }
 
