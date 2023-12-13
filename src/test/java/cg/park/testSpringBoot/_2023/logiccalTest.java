@@ -33,8 +33,8 @@ public class logiccalTest {
 
     public String replaceJsp (String str) {
         return str
-                .replace("/pc", "kor")
-                .replace("/mo", "kor")
+                .replace("/pc", "k")
+                .replace("/mo", "k")
                 .replace(".jsp", "");
     }
 
