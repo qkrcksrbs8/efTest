@@ -15,7 +15,7 @@ public class textExtraction {
 
         String url = "";
 
-        if (contains(url, "happysync", "kakao")) {
+        if (contains(url, "happy", "kakao")) {
             System.out.println("save!!!!!!");
         }
 
