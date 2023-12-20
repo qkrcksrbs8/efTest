@@ -51,6 +51,10 @@
             location.href = '/';
         }
 
+        const appendList = (data) => {
+            $(".grade").append(data);
+        }
+
     </script>
 </head>
 <body>
