@@ -52,7 +52,9 @@
         }
 
         const appendList = (data) => {
-            $(".grade").append(data);
+            if (null != data && "" != data) {
+                $(".grade").append(data);
+            }
         }
 
     </script>
