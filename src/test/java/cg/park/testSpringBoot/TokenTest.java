@@ -40,10 +40,6 @@ public class TokenTest {
         String yesterday = SDF.format(calendar.getTime());
         System.out.println("Yesterday : " + yesterday);
 
-        Date d = new Date();
-
-
-
         HashMap map1 = new HashMap<>();
         HashMap map2 = new HashMap<>();
 
