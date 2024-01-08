@@ -48,12 +48,9 @@ public class TokenTest {
 
         map2.putAll(map1);
 
-        if (map2.containsKey("MO_IMG") || map2.containsKey("MO_IMG_ALT")) {
+        if (map2.containsKey("MO1") || map2.containsKey("MO2")) {
             System.out.println("!!!!!!!!!!!!!!!!!!!!!");
         }
-
-
-
     }
 
     @Test
