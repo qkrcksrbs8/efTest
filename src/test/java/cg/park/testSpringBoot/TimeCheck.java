@@ -11,6 +11,25 @@ public class TimeCheck {
     @Test
     public void print() {
 
+        String n = "144.444";
+        if (n != null && n.indexOf(".") > -1) {
+            n = n.substring(0,n.indexOf("."));
+        }
+        int nn = Integer.parseInt(n);
+
+        System.out.println("n: "+nn);
+
+        System.out.println("NNNNNNNNNNNNNNNNNNNNNNNNNNN");
+
+        String today = "20240108";
+        if ("20231231".compareTo(today) >= 0) {
+            System.out.println("TTTTTTTTTTTTTTTTTTTTTTTTTT");
+        }
+
+
+
+        if (1 == 1) return;
+
         Param sr = new Param();
         sr.set("price", "2727");
         sr.set("amt", "34000");
