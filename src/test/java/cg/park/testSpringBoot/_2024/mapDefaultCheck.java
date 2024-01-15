@@ -9,6 +9,14 @@ public class mapDefaultCheck {
 
     @Test
     public void test() {
+        String today = "20240115";
+        if ("20231231".compareTo(today) >= 0) {
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! counpon");
+        }
+        else {
+            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ end");
+        }
+
         Param map = new Param();
 
         String str = (String) map.get("aaa");
