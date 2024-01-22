@@ -17,7 +17,6 @@ public class Oauth2Controller {
 
     @GetMapping("/callback")
     public String callback(HttpServletRequest request) {
-        System.out.println("[callback]#############################");
         return "/oauth2/complete";
     }
 
