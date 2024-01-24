@@ -8,9 +8,7 @@ public class finallyTest {
 
     @Test
     public void test() {
-
         check();
-
     }
 
     public void check() {
