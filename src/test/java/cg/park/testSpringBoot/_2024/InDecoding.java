@@ -23,7 +23,8 @@ public class InDecoding {
             System.out.println("e: "+e);
         }
         param.set("name", encryptName);
-        System.out.println("encrypt: "+encryptName);
+        System.out.println("name: "+name);
+        System.out.println("encryptName: "+encryptName);
         System.out.println("dcryptName: "+dcryptName);
 
 
