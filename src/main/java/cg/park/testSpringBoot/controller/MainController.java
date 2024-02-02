@@ -84,4 +84,7 @@ public class MainController {
     public ModelAndView test() {
         return new MavUtil("test");
     }
+
+    @GetMapping("/jsApi")
+    public ModelAndView jsApi() { return new MavUtil("jsApi"); }
 }
