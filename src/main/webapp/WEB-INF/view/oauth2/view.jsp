@@ -41,10 +41,9 @@
         let pwd = $("#pwd").val();
         let p = '';
         for (var i = 0; i < pwd.length; i++) {
-            p += pwd.charCodeAt(i);
-            if (i < pwd.length-1) {
-                p += '&'
-            }
+            p += (pwd.charCodeAt(i)*7)+1;
+            p += '&'
+
         }
         alert(encodeURIComponent(pwd));
 
