@@ -5,6 +5,7 @@
 <html>
 <head><title>Dimension | HTML5 UP</title>
     <meta charset="utf-8">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body class="is-article-visible">
 
@@ -65,10 +66,68 @@
 
     </div>
 
+    <div id="sub" style="">
+
+        <!-- Contact -->
+        <article id="contact" style="" class="active">
+            <h2 class="major">Color</h2>
+            <form method="post" action="#">
+                <div class="fields">
+                    <div class="field half">
+                        <label for="name">Color</label>
+                        <input type="color" name="bgcolor" id="bgcolor" onkeyup="colorChange(e.id)" value="#e66465">
+                        <input type="button"
+                               onclick="alert(document.getElementById('bgcolor').value);"
+                               value="HEX값">
+                        <input type="button"
+                               onclick="rgbColor();"
+                               value="RGB값">
+                        <input type="button"
+                               onclick="alert(parseInt((document.getElementById('bgcolor').value).replace(/^#/, '').substring(0, 2), 16));"
+                               value="R 노출">
+                        <input type="button"
+                               onclick="alert(parseInt((document.getElementById('bgcolor').value).replace(/^#/, '').substring(2, 4), 16));"
+                               value="G 노출">
+                        <input type="button"
+                               onclick="alert(parseInt((document.getElementById('bgcolor').value).replace(/^#/, '').substring(4, 6), 16));"
+                               value="B 노출">
+                    </div>
+                </div>
+            </form>
+
+        </article>
+
+    </div>
+
 </div>
 
 
 </body>
+<script>
+
+    const rgbColor = () => {
+        let hex = document.getElementById('bgcolor').value;
+        hex = hex.replace(/^#/, '');
+
+        let r = parseInt(hex.substring(0, 2), 16);
+        let g = parseInt(hex.substring(2, 4), 16);
+        let b = parseInt(hex.substring(4, 6), 16);
+        alert('R:'+r+" G:"+g+" B:"+b);
+    }
+
+    const hexToRgb = (hex, rgb) => {
+        if (null == hex || '' == hex || hex.replace(/^#/, '').length != 6) return '';
+
+        hex = hex.replace(/^#/, '');
+
+        if ('R' == rgb) return parseInt(hex.substring(0, 2), 16);
+        if ('G' == rgb) return parseInt(hex.substring(2, 4), 16);
+        if ('B' == rgb) return parseInt(hex.substring(4, 6), 16);
+        return '';
+    }
+
+
+</script>
 </html>
 
 
