@@ -1,5 +1,6 @@
 package cg.park.testSpringBoot.controller;
 
+import cg.park.testSpringBoot.dto.KakaoToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -97,9 +98,20 @@ public class Oauth2Controller {
             }
             System.out.println("kakao result: "+returnStr);
             System.out.println("kakao map: "+map);
+            KakaoToken k = kakaoToken(map);
         }
         catch (Exception e) {
             System.out.println("ERROR: "+e);
         }
+    }
+
+    public KakaoToken kakaoToken(HashMap<String, String> map) {
+        KakaoToken token = new KakaoToken();
+        token.setToken_type(map.get("token_type"));
+        token.setAccess_token(map.get("access_token"));
+        token.setExpires_in(map.get("expires_in"));
+        token.setRefresh_token(map.get("refresh_token"));
+        token.setRefresh_token_expires_in(map.get("refresh_token_expires_in"));
+        return token;
     }
 }
