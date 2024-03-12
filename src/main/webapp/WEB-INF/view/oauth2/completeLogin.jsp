@@ -13,7 +13,7 @@
 <h1>로그인 이후 화면</h1>
 
 <script>
-
+    alert('환영합니다.');
 </script>
 </body>
 </html>
