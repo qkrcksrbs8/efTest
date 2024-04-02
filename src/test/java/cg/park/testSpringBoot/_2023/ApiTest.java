@@ -9,7 +9,6 @@ import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
 
 @SpringBootTest
@@ -33,8 +32,8 @@ public class ApiTest {
             URL api = new URL(url);
 
             // HttpURLConnection 객체 생성
-            HttpURLConnection conn = (HttpURLConnection) api.openConnection();// http
-//            HttpsURLConnection conn = (HttpsURLConnection) api.openConnection();// https
+//            HttpURLConnection conn = (HttpURLConnection) api.openConnection();// http
+            HttpsURLConnection conn = (HttpsURLConnection) api.openConnection();// https
 
             // 요청 메서드 설정 (GET)
             conn.setRequestMethod("GET");
