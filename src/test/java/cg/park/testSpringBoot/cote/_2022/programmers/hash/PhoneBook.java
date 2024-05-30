@@ -11,7 +11,6 @@ public class PhoneBook {
 
     public boolean solution(String[] phone_book) {
         int size = phone_book.length;
-        if (size < 2) return true;
         Arrays.sort(phone_book, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
